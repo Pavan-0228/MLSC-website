@@ -3,7 +3,7 @@ const Loading = () => {
 
   return (
     <>
-     <h1>Loader</h1>
+      <h1>Loader</h1>
     </>
   );
 };

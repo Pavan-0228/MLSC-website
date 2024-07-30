@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 100px auto;
+}
+
+.timeline::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #fff;
+    top: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: -1;
+    animation: moveLine 6s linear forwards;
+}
+
+@keyframes moveLine {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 100%;
+    }
+}
+
+.container {
+    padding: 20px 50px;
+    position: relative;
+    border-radius: 10px;
+    width: 50%;
+}
+
+.container:nth-child(odd) {
+    left: 0%;
+}
+
+.container:nth-child(even) {
+    left: 50%;
+}
+
+.text-box {
+    padding: 20px;
+    background-color: #fff;
+    position: relative;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.text-box h2 {
+    font-weight: 600;
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+.text-box p {
+    display: inline-block;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.container:nth-child(odd) > .text-box span {
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 75px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #fff;
+    right: -15px;
+}
+
+.container:nth-child(even) > .text-box span {
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 75px;
+    z-index: 1;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #fff;
+    left: -15px;
+}
+
+@media screen and (max-width: 600px) {
+    .timeline {
+        margin: 50px auto;
+    }
+
+    .timeline::after {
+        left: 31px;
+    }
+
+    .container {
+        width: 100%;
+        padding-left: 80px;
+        padding-right: 25px;
+    }
+
+    .text-box {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .text-box p {
+        margin-bottom: 10px;
+    }
+
+    .container:nth-child(even) {
+        left: 0;
+    }
+
+    .container:nth-child(even) > .text-box span,
+    .container:nth-child(odd) > .text-box span {
+        border-right: 15px solid #fff;
+        border-left: 0;
+        left: -15px;
+    }
+}

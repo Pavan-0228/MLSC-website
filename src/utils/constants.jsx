@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Leaderboard from "../pages/Leaderboard";
 import Project from "../pages/Project";
 import Team from "../pages/Team";
+import UpcomingEvent from "../pages/UpcomingEvent";
 import Works from "../pages/Works";
 
 export const routes = [
@@ -35,4 +36,8 @@ export const routes = [
         path: '/leaderboard',
         element: <Leaderboard/>,
     },
+    {
+        path: "timeline",
+        element: <UpcomingEvent />
+    }
 ];
