@@ -1,12 +1,22 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styles from './CounterUp.module.css';
 import CountUp from 'react-countup';
 import ScrollTrigger from 'react-scroll-trigger';
 import { Link } from 'react-router-dom';
+import AnimatedParagraph from './AnimatedParagraph'; // Import the new component
 
 const CounterUp = () => {
-
     const [counterOn, setCounterOn] = useState(false);
+
+    const text = `The Microsoft Learn Students Club (MLSC) serves as a     
+        dynamic hub for student learning and collaboration. Through workshops like React JS Mastery and Azure Fundamentals Challenge,
+        MLSC empowers students with hands-on experiences and expert guidance. Participants
+        receive completion certificates, skill badges, and access to premium resources. MLSC&#39;s
+        commitment extends to cultivating an environment for thriving learning journeys, focusing
+        on emerging technologies, skill development, and networking. The impactful workshops
+        equip participants with practical knowledge, facilitating their navigation in the ever-evolving
+        tech landscape. Join MLSC for a journey of continuous learning, collaboration, and
+        excellence.`;
 
     return (
         <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
@@ -14,15 +24,7 @@ const CounterUp = () => {
                 <h1 className={styles.title}>Our Works</h1>
                 <div className={`flex_center | ${styles.work_container}`}>
                     <div className={styles.right_content}>
-                        <p>The Microsoft Learn Students Club (MLSC) serves as a dynamic hub for student learning and
-                            collaboration. Through workshops like React JS Mastery and Azure Fundamentals Challenge,
-                            MLSC empowers students with hands-on experiences and expert guidance. Participants
-                            receive completion certificates, skill badges, and access to premium resources. MLSC&#39;s
-                            commitment extends to cultivating an environment for thriving learning journeys, focusing
-                            on emerging technologies, skill development, and networking. The impactful workshops
-                            equip participants with practical knowledge, facilitating their navigation in the ever-evolving
-                            tech landscape. Join MLSC for a journey of continuous learning, collaboration, and
-                            excellence.</p>
+                        <AnimatedParagraph text={text} />
                     </div>
                     <div className={`flex_center | ${styles.left_content}`}>
                         <div className={`flex_center | ${styles.counter_page_container}`}>
@@ -48,9 +50,9 @@ const CounterUp = () => {
                         </div>
                     </div>
                 </div>
-
             </section>
         </ScrollTrigger>
-    )
-}
-export default CounterUp
+    );
+};
+
+export default CounterUp;
