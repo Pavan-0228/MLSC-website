@@ -11,26 +11,16 @@
     margin: 100px auto;
 }
 
-.timeline::after {
-    content: "";
+.timeline-line {
     position: absolute;
     width: 6px;
-    height: 100%;
+    height: 0; /* Start with height 0 */
     background: #fff;
     top: 0;
     left: 50%;
-    margin-left: -3px;
+    transform: translateX(-50%);
     z-index: -1;
-    animation: moveLine 6s linear forwards;
-}
-
-@keyframes moveLine {
-    0% {
-        height: 0;
-    }
-    100% {
-        height: 100%;
-    }
+    transition: height 0.1s ease; /* Smooth transition for the height */
 }
 
 .container {

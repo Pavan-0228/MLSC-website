@@ -8,11 +8,11 @@ import styles from "./Works.module.css";
 gsap.registerPlugin(ScrollTrigger);
 
 function UpcomingEvent() {
+  const lineRef = useRef(null);
   const containers = useRef([]);
 
   useEffect(() => {
     containers.current.forEach((container, index) => {
-      
       gsap.fromTo(
         container,
         { y: 50, opacity: 0 },
@@ -27,7 +27,23 @@ function UpcomingEvent() {
             end: "bottom 60%",
             toggleActions: "play none none none",
             scrub: 1,
-            // markers:true,
+            // markers: true,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        lineRef.current,
+        { height: 0 },
+        {
+          duration: 1,
+          height: "100%",
+          scrollTrigger: {
+            trigger: ".timeline",
+            start: "top 30%",
+            end: "bottom bottom",
+            scrub: 1,
+            // markers: true,
           },
         }
       );
@@ -37,24 +53,79 @@ function UpcomingEvent() {
   return (
     <>
       <div className="timeline">
-        {[...Array(6)].map((_, index) => (
-          <div
-            className="container"
-            ref={(el) => (containers.current[index] = el)}
-            key={index}
-          >
-            <div className="text-box">
-              <h2>Event Title {index + 1}</h2>
-              <h6>Date</h6>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Veniam, commodi deleniti laboriosam adipisci voluptatum harum
-                ipsum voluptatem.
-              </p>
-              <span></span>
-            </div>
+        <div className="timeline-line" ref={lineRef}></div>
+        <div className="container" ref={(el) => (containers.current[0] = el)}>
+          <div className="text-box">
+            <h2>Event Title 1</h2>
+            <h6>Date</h6>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam,
+              commodi deleniti laboriosam adipisci voluptatum harum ipsum
+              voluptatem.
+            </p>
+            <span></span>
           </div>
-        ))}
+        </div>
+        <div className="container" ref={(el) => (containers.current[1] = el)}>
+          <div className="text-box">
+            <h2>Event Title 2</h2>
+            <h6>Date</h6>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam,
+              commodi deleniti laboriosam adipisci voluptatum harum ipsum
+              voluptatem.
+            </p>
+            <span></span>
+          </div>
+        </div>
+        <div className="container" ref={(el) => (containers.current[2] = el)}>
+          <div className="text-box">
+            <h2>Event Title 3</h2>
+            <h6>Date</h6>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam,
+              commodi deleniti laboriosam adipisci voluptatum harum ipsum
+              voluptatem.
+            </p>
+            <span></span>
+          </div>
+        </div>
+        <div className="container" ref={(el) => (containers.current[3] = el)}>
+          <div className="text-box">
+            <h2>Event Title 4</h2>
+            <h6>Date</h6>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam,
+              commodi deleniti laboriosam adipisci voluptatum harum ipsum
+              voluptatem.
+            </p>
+            <span></span>
+          </div>
+        </div>
+        <div className="container" ref={(el) => (containers.current[4] = el)}>
+          <div className="text-box">
+            <h2>Event Title 5</h2>
+            <h6>Date</h6>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam,
+              commodi deleniti laboriosam adipisci voluptatum harum ipsum
+              voluptatem.
+            </p>
+            <span></span>
+          </div>
+        </div>
+        <div className="container" ref={(el) => (containers.current[5] = el)}>
+          <div className="text-box">
+            <h2>Event Title 6</h2>
+            <h6>Date</h6>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam,
+              commodi deleniti laboriosam adipisci voluptatum harum ipsum
+              voluptatem.
+            </p>
+            <span></span>
+          </div>
+        </div>
       </div>
       <div className={styles.footer_container}>
         <Footer />
