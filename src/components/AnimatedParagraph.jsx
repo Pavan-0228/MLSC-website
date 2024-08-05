@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger as GSAPScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger as GSAPScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(GSAPScrollTrigger);
 
@@ -17,7 +17,7 @@ const AnimatedParagraph = ({ text }) => {
         });
         paragraph.innerHTML = clutter;
 
-        gsap.to(paragraph.querySelectorAll('span'), {
+        gsap.to(paragraph.querySelectorAll("span"), {
             scrollTrigger: {
                 trigger: paragraph,
                 start: "top bottom",
